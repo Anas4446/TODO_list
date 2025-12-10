@@ -1,3 +1,13 @@
+// Configuration
+const CONFIG = {
+  welcomeMessage: 'Bonjour ! 👋 Je suis votre assistant virtuel. Comment puis-je vous aider aujourd\'hui ?',
+  contact: {
+    phone: '+33 1 23 45 67 89',
+    email: 'contact@example.com',
+    address: '123 Rue de la République, Paris'
+  }
+};
+
 // DOM Elements
 const chatMessages = document.getElementById('chatMessages');
 const messageInput = document.getElementById('messageInput');
@@ -38,7 +48,7 @@ quickReplies.forEach(btn => {
 clearBtn.addEventListener('click', function() {
   if (confirm('Voulez-vous vraiment effacer toute la conversation ?')) {
     chatMessages.innerHTML = '';
-    addBotMessage('Bonjour ! 👋 Je suis votre assistant virtuel. Comment puis-je vous aider aujourd\'hui ?');
+    addBotMessage(CONFIG.welcomeMessage);
   }
 });
 
@@ -171,7 +181,7 @@ function generateBotResponse(userMessage) {
   
   // Contact responses
   if (lowerMessage.includes('contact') || lowerMessage.includes('joindre') || lowerMessage.includes('téléphone') || lowerMessage.includes('email')) {
-    return 'Vous pouvez nous contacter de plusieurs façons :\n📞 Téléphone : +33 1 23 45 67 89\n✉️ Email : contact@example.com\n📍 Adresse : 123 Rue de la République, Paris\n\nNotre équipe est disponible du lundi au vendredi de 9h à 18h. 📞';
+    return `Vous pouvez nous contacter de plusieurs façons :\n📞 Téléphone : ${CONFIG.contact.phone}\n✉️ Email : ${CONFIG.contact.email}\n📍 Adresse : ${CONFIG.contact.address}\n\nNotre équipe est disponible du lundi au vendredi de 9h à 18h. 📞`;
   }
   
   // Hours responses
@@ -205,6 +215,3 @@ function generateBotResponse(userMessage) {
   
   return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
 }
-
-// Initialize - Remove the initial bot message from HTML since we'll add it dynamically
-// The initial message is already in the HTML, so no need to add it again
