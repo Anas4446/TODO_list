@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Assistant virtuel intelligent pour répondre à vos questions">
+  <title>Chatbot Pro - Assistant Virtuel</title>
+  <link rel="stylesheet" href="chatbot-style.css">
+</head>
+<body>
+  <div class="chatbot-container">
+    <!-- Header -->
+    <div class="chatbot-header">
+      <div class="header-left">
+        <div class="bot-avatar">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="20" fill="#4A90E2"/>
+            <path d="M20 10C15 10 11 14 11 19C11 22 12.5 24.5 15 26V30L19 28C19.3 28 19.7 28 20 28C25 28 29 24 29 19C29 14 25 10 20 10Z" fill="white"/>
+          </svg>
+        </div>
+        <div class="bot-info">
+          <h1 class="bot-name">Assistant Pro</h1>
+          <p class="bot-status"><span class="status-dot"></span> En ligne</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <button class="icon-btn" id="minimizeBtn" title="Réduire">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <button class="icon-btn" id="clearBtn" title="Effacer la conversation">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M3 6H17M8 6V4H12V6M5 6L6 16H14L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Chat Messages Area -->
+    <div class="chat-messages" id="chatMessages">
+      <div class="message bot-message">
+        <div class="message-avatar">
+          <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="20" fill="#4A90E2"/>
+            <path d="M20 10C15 10 11 14 11 19C11 22 12.5 24.5 15 26V30L19 28C19.3 28 19.7 28 20 28C25 28 29 24 29 19C29 14 25 10 20 10Z" fill="white"/>
+          </svg>
+        </div>
+        <div class="message-content">
+          <div class="message-bubble">
+            <p>Bonjour ! 👋 Je suis votre assistant virtuel. Comment puis-je vous aider aujourd'hui ?</p>
+          </div>
+          <span class="message-time">Maintenant</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Replies -->
+    <div class="quick-replies" id="quickReplies">
+      <button class="quick-reply-btn" data-message="Comment puis-je vous aider ?">
+        💡 Aide
+      </button>
+      <button class="quick-reply-btn" data-message="Quels services proposez-vous ?">
+        📋 Services
+      </button>
+      <button class="quick-reply-btn" data-message="Comment vous contacter ?">
+        📞 Contact
+      </button>
+      <button class="quick-reply-btn" data-message="Quels sont vos horaires ?">
+        🕐 Horaires
+      </button>
+    </div>
+
+    <!-- Input Area -->
+    <div class="chat-input-area">
+      <button class="icon-btn attach-btn" title="Joindre un fichier">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M10 3V13M10 13L7 10M10 13L13 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M3 17H17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="input-wrapper">
+        <textarea 
+          id="messageInput" 
+          class="message-input" 
+          placeholder="Écrivez votre message..."
+          rows="1"
+        ></textarea>
+      </div>
+      <button class="send-btn" id="sendBtn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Typing Indicator -->
+    <div class="typing-indicator" id="typingIndicator" style="display: none;">
+      <div class="typing-dot"></div>
+      <div class="typing-dot"></div>
+      <div class="typing-dot"></div>
+    </div>
+  </div>
+
+  <!-- Footer Info -->
+  <div class="footer-info">
+    <p>Propulsé par IA • Disponible 24/7 • Réponses instantanées</p>
+  </div>
+
+  <script src="chatbot-script.js"></script>
+</body>
+</html>
